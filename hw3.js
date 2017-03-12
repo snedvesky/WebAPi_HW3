@@ -8,7 +8,7 @@ var app = express();
 
 // GET PROCEDURE
 app.get('/gets', function(req, res){
-    console.log("Recieved GET request");
+    console.log("Recieved GET Request");
     var GitHubApi = require("github");
     var github = new GitHubApi({
         version: "3.0.0"
@@ -23,17 +23,17 @@ app.get('/gets', function(req, res){
 
     github.user.get({ user: 'snedvesky'} , function(err, resp) {
 
-        console.log("ERRors?", err);
-        console.log("RESponse?", resp);
+        console.log("Errors: ", err);
+        console.log("Response: ", resp);
         res.send(resp);
 
         github.repos.getAll({}, function(err, res) {
-            console.log("ERRors?", err);
-            console.log("RESponse?", res);
+            console.log("Errors: ", err);
+            console.log("Response: ", res);
         });
     });
 
-    console.log("test1");
+  
 })
 
 /*  404 Errors
