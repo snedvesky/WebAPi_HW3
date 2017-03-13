@@ -1,29 +1,29 @@
 {
-	"id": "5966e60b-542f-87c9-66da-71dcceeaf02d",
+	"id": "1c87d0f7-93c5-29a5-88a1-805b3713fcd6",
 	"name": "HW3",
 	"description": "",
 	"order": [
-		"88351004-4847-05a6-8b19-1174654e6dbd"
+		"1acf0f51-fa49-cfae-a241-522ffa8bb239"
 	],
 	"folders": [],
-	"timestamp": 1489285524579,
+	"timestamp": 1489431105200,
 	"owner": "1537171",
 	"public": false,
 	"requests": [
 		{
-			"id": "88351004-4847-05a6-8b19-1174654e6dbd",
+			"id": "1acf0f51-fa49-cfae-a241-522ffa8bb239",
 			"headers": "",
-			"url": "https://snedvesky-test.apigee.net/hw3",
+			"url": "https://snedvesky-test.apigee.net/oauth/client_credential/accesstoken?grant_type=client_credentials&access_token=QzAWwGqOR9ySAte5nBUsHcgqM16K",
 			"pathVariables": {},
 			"preRequestScript": null,
 			"method": "GET",
-			"collectionId": "5966e60b-542f-87c9-66da-71dcceeaf02d",
+			"collectionId": "1c87d0f7-93c5-29a5-88a1-805b3713fcd6",
 			"data": null,
 			"dataMode": "params",
-			"name": "https://snedvesky-test.apigee.net/hw3",
-			"description": "",
+			"name": "https://snedvesky-test.apigee.net/oauth/client_credential/accesstoken?grant_type=client_credentials&access_token=QzAWwGqOR9ySAte5nBUsHcgqM16K",
+			"description": "Request & Retrieve Token",
 			"descriptionFormat": "html",
-			"time": 1489285524579,
+			"time": 1489431105200,
 			"version": 2,
 			"responses": [],
 			"tests": null,
