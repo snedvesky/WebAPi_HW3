@@ -16,7 +16,7 @@ app.get('/gets', function(req, res){
 
 });
 
-var AUTH_TOKEN = "bb84815ed33ac6c39b600b18ceb4c3107c2f654f";
+var AUTH_TOKEN = "TOKEN"; // Don't put actual value on github
 github.authenticate({
     type: "oauth",
     token: AUTH_TOKEN
