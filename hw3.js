@@ -6,13 +6,16 @@ var express = require('express');
 var app = express();
 
 
-
 // GET PROCEDURE
 app.get('/gets', function(req, res){
     console.log("Recieved GET Request");
     var GitHubApi = require("github");
     var github = new GitHubApi({
-        version: "3.0.0"
+        version: "3.0.0",
+        debug: false,
+        protocol: 'https',
+        host: 'api.github.com', 
+        timeout: 5000
     });
         
     var AUTH_TOKEN = "token";
@@ -21,28 +24,14 @@ app.get('/gets', function(req, res){
         token: AUTH_TOKEN
     });
 
-    github.user.get({ user: 'snedvesky'} , function(err, resp) {
-        console.log("Response: ", resp);
-        console.log("Errors: ", err);
-        res.send(resp);
-
-        github.repos.getAll({}, function(err, res) {
-            console.log("Response: ", res);
-            console.log("Errors: ", err);
-        });
+    github.repos.getFromUser({user: "snedvesky"}, function(err, res) {
+    console.log("ERR?: ", err);
+    console.log("RES?", res);
+    for (var i = 0, j = res.length; i < j; i += 1) {
+        console.log(res[i].language)
+    }
     });
 
-  
-})
-
-/*  404 Errors
-app.use(function(err, req, res, next) {
-    if(err.status !== 404) {
-        return next();
-    }
-    res.send(err.message || ' nada ');
-});
-*/
 
 app.listen(8080, function() {
     var p1 = server.address().port
