@@ -11,43 +11,52 @@ app.get('/gets', function(req, res){
     console.log("Recieved GET Request");
     var GitHubApi = require("github");
     var github = new GitHubApi({
-        version: "3.0.0"
+        version: "3.0.0",
+<<<<<<< HEAD
+    })
+
+});
+
+var AUTH_TOKEN = "bb84815ed33ac6c39b600b18ceb4c3107c2f654f";
+github.authenticate({
+    type: "oauth",
+    token: AUTH_TOKEN
+});
+
+github.repos.getFromUser({user: "snedvesky"}, function(err, res) {
+=======
+        debug: false,
+        protocol: 'https',
+        host: 'api.github.com', 
+        timeout: 5000
     });
-
-
-    var token = "2b2bbec5601e224fd0784609d1ee4e1c51fddd02";
+        
+    var AUTH_TOKEN = "token";
     github.authenticate({
         type: "oauth",
-        token: token
+        token: AUTH_TOKEN
     });
 
-    github.user.get({ user: 'snedvesky'} , function(err, resp) {
-
-        console.log("Errors: ", err);
-        console.log("Response: ", resp);
-        res.send(resp);
-
-        github.repos.getAll({}, function(err, res) {
-            console.log("Errors: ", err);
-            console.log("Response: ", res);
-        });
-    });
-
-  
-})
-
-/*  404 Errors
-app.use(function(err, req, res, next) {
-    if(err.status !== 404) {
-        return next();
+    github.repos.getFromUser({user: "snedvesky"}, function(err, res) {
+>>>>>>> origin/master
+    console.log("ERR?: ", err);
+    console.log("RES?", res);
+    for (var i = 0, j = res.length; i < j; i += 1) {
+        console.log(res[i].language)
     }
-    res.send(err.message || ' nada ');
+<<<<<<< HEAD
 });
-*/
+=======
+    });
+>>>>>>> origin/master
+
 
 app.listen(8080, function() {
     var p1 = server.address().port
     var h1 = server.address().address
     console.log("Server running on http://%s:%s", h1, p1)
-
+<<<<<<< HEAD
 })
+=======
+})
+>>>>>>> origin/master
