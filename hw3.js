@@ -1,7 +1,7 @@
 // Scott Nedvesky
 // Web API CSCI 3800
 // HW3 - The purpose of this assignment is to protect the proxies using OAuth Authorization.
-
+import GitHub from 'github-api';
 var express = require('express');
 var app = express();
 
@@ -14,22 +14,20 @@ app.get('/gets', function(req, res){
         version: "3.0.0"
     });
 
-
-    var token = "2b2bbec5601e224fd0784609d1ee4e1c51fddd02";
+    var Accesstoken = "token";
     github.authenticate({
         type: "oauth",
-        token: token
+        token: Accesstoken
     });
 
     github.user.get({ user: 'snedvesky'} , function(err, resp) {
-
-        console.log("Errors: ", err);
         console.log("Response: ", resp);
+        console.log("Errors: ", err);
         res.send(resp);
 
         github.repos.getAll({}, function(err, res) {
-            console.log("Errors: ", err);
             console.log("Response: ", res);
+            console.log("Errors: ", err);
         });
     });
 
@@ -46,8 +44,6 @@ app.use(function(err, req, res, next) {
 */
 
 app.listen(8080, function() {
-    var p1 = server.address().port
-    var h1 = server.address().address
-    console.log("Server running on http://%s:%s", h1, p1)
+    console.log("Server running on http://%s:%s", server.address().port, server.address().port)
 
 })
